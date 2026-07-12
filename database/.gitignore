@@ -1,0 +1,12 @@
+# Archivos de NetBeans
+nbproject/private/
+
+# Archivos compilados
+build/
+dist/
+
+# Archivos temporales
+*.class
+
+# Logs
+*.log

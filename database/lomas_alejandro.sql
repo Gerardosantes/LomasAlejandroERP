@@ -107,3 +107,31 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE proveedores (
+
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+
+    nombre VARCHAR(100) NOT NULL,
+
+    telefono VARCHAR(20),
+
+    correo VARCHAR(100),
+
+    direccion VARCHAR(200),
+
+    contacto VARCHAR(100),
+
+    estado BOOLEAN DEFAULT TRUE,
+
+    fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
+);
+--------
+------
+proveedoresproveedoresproveedoresnombrecorreo
+-------
+
+
+

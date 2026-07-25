@@ -4,7 +4,9 @@ package mx.com.lomas.vista;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+import mx.com.lomas.dao.UsuarioDAO;
+import mx.com.lomas.modelo.Usuario;
+import mx.com.lomas.vista.FrmPrincipal;
 
 
 public class FrmLogin extends javax.swing.JFrame {
@@ -13,9 +15,15 @@ public class FrmLogin extends javax.swing.JFrame {
 
    
     public FrmLogin() {
-        initComponents();
-        
+
+    initComponents();
+
+    txtContrasena.setText("");
+    lblVersion.setText("Versión 0.4.0");
+    setLocationRelativeTo(null);
+
     cargarLogo();
+
     }
 
      private void cargarLogo() {
@@ -248,7 +256,49 @@ public class FrmLogin extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void btnIniciarSesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarSesionActionPerformed
-        // TODO add your handling code here:
+       String usuario = txtUsuario.getText().trim();
+String contrasena = new String(txtContrasena.getPassword());
+
+if (usuario.isEmpty() || contrasena.isEmpty()) {
+
+    JOptionPane.showMessageDialog(
+            this,
+            "Ingresa tu usuario y contraseña.",
+            "Campos vacíos",
+            JOptionPane.WARNING_MESSAGE
+    );
+
+    return;
+}
+
+UsuarioDAO usuarioDAO = new UsuarioDAO();
+
+Usuario usuarioEncontrado =
+        usuarioDAO.iniciarSesion(usuario, contrasena);
+
+if (usuarioEncontrado != null) {
+
+    FrmPrincipal frmPrincipal = new FrmPrincipal();
+
+    frmPrincipal.setLocationRelativeTo(null);
+    frmPrincipal.setVisible(true);
+
+    this.dispose();
+
+
+
+} else {
+
+    JOptionPane.showMessageDialog(
+            this,
+            "Usuario o contraseña incorrectos.",
+            "Error de inicio de sesión",
+            JOptionPane.ERROR_MESSAGE
+    );
+}
+        
+        
+        
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
   

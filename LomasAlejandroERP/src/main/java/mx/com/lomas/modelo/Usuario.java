@@ -1,5 +1,6 @@
-
 package mx.com.lomas.modelo;
+
+import java.time.LocalDateTime;
 
 public class Usuario {
 
@@ -12,8 +13,36 @@ public class Usuario {
     private String contrasena;
     private String telefono;
     private String correo;
+    private boolean estado;
+    private LocalDateTime fechaRegistro;
 
     public Usuario() {
+    }
+
+    public Usuario(
+            int idUsuario,
+            int idRol,
+            String nombre,
+            String apellidoPaterno,
+            String apellidoMaterno,
+            String usuario,
+            String contrasena,
+            String telefono,
+            String correo,
+            boolean estado,
+            LocalDateTime fechaRegistro
+    ) {
+        this.idUsuario = idUsuario;
+        this.idRol = idRol;
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.estado = estado;
+        this.fechaRegistro = fechaRegistro;
     }
 
     public int getIdUsuario() {
@@ -88,8 +117,19 @@ public class Usuario {
         this.correo = correo;
     }
 
-    
-    
-    
-    
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    public LocalDateTime getFechaRegistro() {
+        return fechaRegistro;
+    }
+
+    public void setFechaRegistro(LocalDateTime fechaRegistro) {
+        this.fechaRegistro = fechaRegistro;
+    }
 }
